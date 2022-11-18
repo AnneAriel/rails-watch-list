@@ -3,17 +3,19 @@
  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
 
 
-
-<ul class="list-group">
+<ul>
   <% @list.bookmarks.each do |bookmark| %>
-    <li class="list-group-item"><%= bookmark.comment%></li>
-    <li class="list-group-item">
-      <%= @bookmark.comment %>
-      <%= link_to "Delete",
-         bookmark_path(bookmark),
-        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    </li>
-  <% end %>
+        <div class="card-product">
+          <img src= "<%= bookmark.movie.poster_url %>" />
+            <div class="card-product-infos">
+              <h5><%= bookmark.movie.title %></h5>
+              <p><%= bookmark.comment %></p>
+            </div>
+            <div class="btn delete-btn">
+              <%= link_to "Delete this bookmark", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure ?" } %>
+            </div>
+        </div>
+      <% end %>
 </ul>
 
 <%= link_to "Add a bookmark", new_list_bookmark_path(@list)%>
