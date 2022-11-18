@@ -1,1 +1,28 @@
-<%= render "form", list: @list %>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Create a new list</h3>
+        <%= simple_form_for @list do |f| %>
+          <%= f.input :name, placeholder: 'Drama' %>
+          <%= f.submit class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%# on veut ajouter une liste %>
+
+<%# <div class= m-3>
+  <h1>Create a new list</h1>
+    <%# <%= simple_form_for(@list) do |f| %>
+      <%# <%= f.label :name %>
+      <%# <%= f.text_field :name %>
+      <%# <%= f.submit %>
+    <%# <% end %>
+<%# </div> %>
+
+<%# on veut retourner aux listes %>
+
+<%= link_to "Back to all lists", lists_path, class: 'btn btn-primary'%>

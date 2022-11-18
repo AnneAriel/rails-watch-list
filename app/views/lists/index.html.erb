@@ -1,7 +1,49 @@
-<h1> LISTS </h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://lajoyalink.com/wp-content/uploads/2018/03/Movie.jpg);">
+  <div class="container">
+    <h1> My favorites movies list </h1>
+  </div>
+</div>
 
-<ul>
+
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center">
+    <h1>Save any kind of movies</h1>
+    <h3 class="typed-js" data-controller="typed-js"></h3>
+  </div>
+</div>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">My Lists</h3>
+    <%= link_to "Create a movie list", new_list_path, class: "btn btn-primary" %>
+  </div>
+
+    <div class="row">
+      <% @lists.each do |list| %>
+        <div class="co-12 col-sm-6 col-md-4 mb-3">
+          <%= link_to list_path(list), class:"text-decoration-none" do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/people-matters/image/upload/q_auto,f_auto/v1517845732/1517845731.jpg)">
+              <%= list.name %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+<%# <%= link_to "New list", new_list_path, class: 'btn btn-primary' %>
+
+
+
+
+
+<%# <div class="cards">
   <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list) %></li>
+    <%# <div class="card" >
+      <img src="https://picsum.photos/200/300" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to list.name, list_path(list) %>
+        <%# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+    </div>
   <% end %>
-</ul>
+<%# </div> %>
