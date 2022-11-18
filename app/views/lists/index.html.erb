@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://lajoyalink.com/wp-content/uploads/2018/03/Movie.jpg);">
   <div class="container">
-    <h1> My favorites movies list </h1>
+    <h1> My favorites movies lists </h1>
   </div>
 </div>
 
@@ -17,12 +17,13 @@
     <%= link_to "Create a movie list", new_list_path, class: "btn btn-primary" %>
   </div>
 
+<% console %>
 
   <div class="row">
     <% @lists.each do |list| %>
       <div class="co-12 col-sm-6 col-md-4 mb-3">
         <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <%= cl_image_tag list.photo.key %>
           <div class="card-product-infos">
             <%= link_to list_path(list), class:"text-decoration-none" do %>
             <%= list.name %>
